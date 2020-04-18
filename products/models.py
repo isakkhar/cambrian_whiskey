@@ -13,5 +13,11 @@ class Product(models.Model):
   def __str__(self):
     return self.title
 
+# ive tried:    def __str__(self): return self.description 
+#               AND 
+#               def __str__(self): return self.title
+#               AND
+#               def __str__(self): return self.title, description
+
 
 

@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_forms_bootstrap',
+    'accounts',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -51,10 +54,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cambrian_whiskey.urls'
 
+# all directories named 'templates' potentially contain templates therefore we must set the DIRS TEMPLATES setting below to allow this. This way we can set each template for each application
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,6 +104,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# BY DOING THE FOLLOWING I SHOULD HAVE LOGIN CAPABILITY
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend', 'accounts.backends.CaseInsensitiveAuth'
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -118,3 +129,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# the following MESSAGE_STORAGE is to fix an issue we have with cloud 9. but im not on cloud 9 so i will uncomment
+
+# MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorahe'
+
+
+
+
+
+

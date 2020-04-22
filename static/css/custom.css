@@ -5,8 +5,8 @@ body {
 
 footer {
   margin-top: 40px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 1px solid #ededed;
   color: #A9A9A9;
 }
@@ -19,7 +19,8 @@ footer {
   padding-top: 20px;
 }
 
-/* badge: is the cart icon at the na bar */
+/* badge: is the cart icon at the nav bar */
+/* we are using different webkits for different browsers. i.e moz for mozilla for firefox */
 
 .badge {
   padding-left: 9px;
@@ -36,8 +37,9 @@ footer {
   background-color: #c67605;
 }
 
+/* the div with class product is for the product image in the products.html file */
 .product {
-  /* contain so that it remains within the div */
+  /* contain so that it remains within the div and not overflow */
   background-size: contain;
   /* center center to make sure its centered within the div */
   background-position: center center;

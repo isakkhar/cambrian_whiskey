@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'accounts',
     'products',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -67,10 +68,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'cart.contexts.cart_contents',
             ],
         },
     },
 ]
+
+# context_processors are lists of things that are available on every webpage
 
 WSGI_APPLICATION = 'cambrian_whiskey.wsgi.application'
 
@@ -129,12 +134,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# any directory called 'static' CAN contain staticfiles
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # the following MESSAGE_STORAGE is to fix an issue we have with cloud 9. but im not on cloud 9 so i will uncomment
 
 # MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorahe'
 
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 

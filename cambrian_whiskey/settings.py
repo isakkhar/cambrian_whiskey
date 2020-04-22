@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+# so to actually use our env.py variables, we have to put import env at the top of the settings.py file. That will import our entire file and let us access to our environment variables
+
+import env
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -145,6 +149,10 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# OS MEANS WHATEVER COMPUTER THIS IS RUNNING ON. AND IN THIS CASE ITS WINDOWS. GET AN ENVIRONMENT VARIABLE AND WE ARE GOING TO CREATE AN ENVIRNMENT VARIABLE CALLED 'STRIPE_PUBLISHABLE' AND 'STRIPE_SECRET'. THIS IS SO THAT THE USERS CANNOT SEE THE KEYS PARTICULARLY THE SECRET KEYS OTHERWISE THEY ARE ABLE TO 'hack' INTO OUR ACCOUNT
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 
 

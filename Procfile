@@ -1,0 +1,1 @@
+web: gunicorn cambrian_whiskey.wsgi:application

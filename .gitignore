@@ -1,2 +1,8 @@
 db.sqlite3
 env.py
+# As we have out static and our media on S3, we don't really need them to be pushed to git, so we can add things like PNG, Static and Media. 
+# We will have to push them to s3 if we want any css changes
+*.png
+*.jpg
+static/
+media/

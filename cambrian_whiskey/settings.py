@@ -15,6 +15,7 @@ import os
 # so to actually use our env.py variables, we have to put import env at the top of the settings.py file. That will import our entire file and let us access to our environment variables
 
 import env
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l&nq-xcx-%vc09(2w%!463k_b5udb7_xa2o)#vpmjz8r!a0o#)'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'cart',
+    'checkout',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -87,12 +90,15 @@ WSGI_APPLICATION = 'cambrian_whiskey.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# 'DATABSE_URL' originates from heroku/settings/configVars
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 
 # Password validation
@@ -137,11 +143,36 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+# Then we can make some changes to our settings.py in order to connect to AWS. Static files tend not to change that many things, like CSS, so browsers will often cache them.So the first thing that we're going to add in here is just something to allow boto to know that it can cache the static files.
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
+
+AWS_STORAGE_BUCKET_NAME = 'cambrian-whiskey'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+# cambrian-whiskey.s3.amazonaws.com
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+STATICFILES_LOCATION = 'static'
+
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
 STATIC_URL = '/static/'
 # any directory called 'static' CAN contain staticfiles
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# our MEDIAFILES_LOCATION will be media, so any directory called media
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 # the following MESSAGE_STORAGE is to fix an issue we have with cloud 9. but im not on cloud 9 so i will uncomment
 

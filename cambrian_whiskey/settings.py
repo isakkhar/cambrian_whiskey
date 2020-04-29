@@ -14,7 +14,8 @@ import os
 
 # so to actually use our env.py variables, we have to put import env at the top of the settings.py file. That will import our entire file and let us access to our environment variables
 
-import env
+# removing the import env below as we are running everything through Heroku
+# import env
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -90,15 +91,20 @@ WSGI_APPLICATION = 'cambrian_whiskey.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+
 
 # 'DATABSE_URL' originates from heroku/settings/configVars
-DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+else:
+    print('Databse URL not found. Using SQlite instead')
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 
 # Password validation

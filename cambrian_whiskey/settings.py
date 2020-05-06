@@ -15,11 +15,11 @@ import os
 # so to actually use our env.py variables, we have to put import env at the top of the settings.py file. That will import our entire file and let us access to our environment variables
 
 # removing the import env below as we are running everything through Heroku
-# import env
-import dj_database_url
+import env
+# import dj_database_url
 
-if os.path.exists('env.py'):
-    import env
+# if os.path.exists('env.py'):
+    # import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -95,8 +95,8 @@ WSGI_APPLICATION = 'cambrian_whiskey.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 
-
 # 'DATABSE_URL' originates from heroku/settings/configVars
+
 if 'DATABASE_URL' in os.environ:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
@@ -154,18 +154,22 @@ USE_TZ = True
 
 # Then we can make some changes to our settings.py in order to connect to AWS. Static files tend not to change that many things, like CSS, so browsers will often cache them.So the first thing that we're going to add in here is just something to allow boto to know that it can cache the static files.
 
-AWS_S3_OBJECT_PARAMETERS = {
-    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    'CacheControl': 'max-age=94608000',
-}
+# PRODUCTION CONFIGURATION
 
-AWS_STORAGE_BUCKET_NAME = 'cambrian-whiskey'
-AWS_S3_REGION_NAME = 'eu-west-2'
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+#     'CacheControl': 'max-age=94608000',
+# }
+
+# AWS_STORAGE_BUCKET_NAME = 'cambrian-whiskey'
+# AWS_S3_REGION_NAME = 'eu-west-2'
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 # cambrian-whiskey.s3.amazonaws.com
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 STATICFILES_LOCATION = 'static'
 
@@ -178,6 +182,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # our MEDIAFILES_LOCATION will be media, so any directory called media
 MEDIAFILES_LOCATION = 'media'
@@ -189,10 +194,11 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
+
 # CODE INSTITUTE found an issue in a video so instead of :MEDIA_URL = '/media/' they tell us to input the following:
 
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 # OS MEANS WHATEVER COMPUTER THIS IS RUNNING ON. AND IN THIS CASE ITS WINDOWS. GET AN ENVIRONMENT VARIABLE AND WE ARE GOING TO CREATE AN ENVIRNMENT VARIABLE CALLED 'STRIPE_PUBLISHABLE' AND 'STRIPE_SECRET'. THIS IS SO THAT THE USERS CANNOT SEE THE KEYS PARTICULARLY THE SECRET KEYS OTHERWISE THEY ARE ABLE TO 'hack' INTO OUR ACCOUNT
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')

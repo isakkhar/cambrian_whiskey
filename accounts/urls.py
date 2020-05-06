@@ -13,7 +13,7 @@ urlpatterns = [
   url(r'^register/$', registration, name='registration'),
   # user_profile underneath connects to the view function def user_profile and must include it above from accounts.view import user_profile
   url(r'^profile/$', user_profile, name='profile'),
-  url(r'^password-reset/', include(url_reset))
+  url(r'^password-reset/', include(url_reset)),
 ]
 
 

@@ -17,7 +17,7 @@ import os
 # When running locally use import env:
 
 import env
-
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -152,27 +152,33 @@ USE_TZ = True
 
 # Then we can make some changes to our settings.py in order to connect to AWS. Static files tend not to change that many things, like CSS, so browsers will often cache them.So the first thing that we're going to add in here is just something to allow boto to know that it can cache the static files.
 
-
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-
 STATIC_URL = '/static/'
-# any directory called 'static' CAN contain staticfiles
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+# STATIC_URL = '/static/'
+# any directory called 'static' CAN contain staticfiles
+# STATICFILES_DIRS = (
+    # os.path.join(BASE_DIR, 'static'),
+# )
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # our MEDIAFILES_LOCATION will be media, so any directory called media
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+# MEDIAFILES_LOCATION = 'media'
+# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 # the following MESSAGE_STORAGE is to fix an issue we have with cloud 9. but im not on cloud 9 so i will uncomment
 
 # MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorahe'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 
 
 # OS MEANS WHATEVER COMPUTER THIS IS RUNNING ON. AND IN THIS CASE ITS WINDOWS. GET AN ENVIRONMENT VARIABLE AND WE ARE GOING TO CREATE AN ENVIRNMENT VARIABLE CALLED 'STRIPE_PUBLISHABLE' AND 'STRIPE_SECRET'. THIS IS SO THAT THE USERS CANNOT SEE THE KEYS PARTICULARLY THE SECRET KEYS OTHERWISE THEY ARE ABLE TO 'hack' INTO OUR ACCOUNT
@@ -201,7 +207,9 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-# STATICFILES_LOCATION = 'static'
+# Pretty sure we dont need that STATICFILES_LOCATION for local settings for running in local production.
+ 
+STATICFILES_LOCATION = 'static'
 
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 

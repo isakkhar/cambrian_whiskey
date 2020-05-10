@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'accounts',
+    'home',
     'products',
     'cart',
     'checkout',
@@ -208,8 +209,9 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 # Pretty sure we dont need that STATICFILES_LOCATION for local settings for running in local production.
- 
-STATICFILES_LOCATION = 'static'
+
+# the below syntax STATICFILES_LOCATION is meant to be commented out for when running locally but i uncommented it and the files in the static folder still work, i.e custom.css 
+# STATICFILES_LOCATION = 'static'
 
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 

@@ -14,6 +14,4 @@ def about(request):
   """
   Sends the user to the about page
   """
-  # product = Product.objects.all()
-  # context = {'product': product}
   return render(request, 'about.html')

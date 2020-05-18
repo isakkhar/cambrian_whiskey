@@ -1,23 +1,29 @@
 {% block nav %}
 <!-- <header id="navbar" class="sticky"> -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand title" href=""><img src="media\images\glenfiddich_logo@2x (1).png" width=''30 height="30" alt="Cambrian Whiskey"></a>
+        <a class="navbar-brand title" href="/"><img src="\media\images\glenfiddich_logo@2x (1).png" width=''30 height="30" alt="Cambrian Whiskey"></a>
+
+        {% comment %} Mobile Menu Hamburger {% endcomment %}
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Whiskey List <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Whiskey List <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="{}" class="nav-link">About</a>
+                    <a href="{% url 'about' %}" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">Contact Us</a>
                 </li>
             </ul>
+            
             <!--Hidden on mobile as caused too much in the navbar -->
             <div class="align-center mx-auto collapse navbar-collapse" id="searchbar">
                 <form class="form-inline my-2 my-lg-0 ml-auto" action="{% url 'search' %}" method="GET">
@@ -26,10 +32,11 @@
                     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
+
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %} ">Logout</a>
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'profile' %} ">Profile</a>
@@ -43,8 +50,8 @@
                 </li>
                 {% endif %}
             </ul>
-            <ul class="navbar-nav ml-auto">
 
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item shopping-cart">
                     <a href="{% url 'view_cart' %}" class="nav-link cart-link">
                         <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
@@ -56,6 +63,7 @@
                     </a>
                 </li>
             </ul>
+
         </div>
     </nav>
 <!-- </header> -->

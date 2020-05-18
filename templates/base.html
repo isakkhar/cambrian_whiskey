@@ -37,12 +37,13 @@
       </div>
     {% endif %}
     <div class="container">
-      <div class="display">
+    {% comment %} search box. Dont think i need it as i have searcg box in navbar {% endcomment %}
+      {% comment %} <div class="display">
         <form class="form-position" action="{% url 'search' %}" method="get">
           <input type="text" name="q">
           <button type="submit">Search</button>
         </form>
-      </div>
+      </div> {% endcomment %}
       {% block content %}{% endblock %}
     </div>
 </body>    

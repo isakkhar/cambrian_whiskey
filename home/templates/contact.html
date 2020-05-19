@@ -1,55 +1,68 @@
 {% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
 {% block title %}
 
 Contact Us
 
 {% endblock %}
 
-{% load crispy_forms_tags %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
 {% block content %}
 
 <section class="contact">
+    
     <div class="container">
-
+{% comment %} 
         <div class="row">
+            
             <h1 class="title">Contact Us</h1>
-        </div>
+        
+        </div> {% endcomment %}
 
-        <hr>
-
-        <div class="row">
+        <div class="row contact_title">
 
             <div class="col-12">
+
                 <p class="text">
-                    If you've any questions regarding our products, prices, location or generaly enquiries
-                    please dont hesitate to drop us a line here on our form, or call us on +44 12345678990
+            
+                    GET IN TOUCH
+
                 </p>
-                <p class="text">We'll endeavour to get back to you as soon as we can, usually within 24 hours.</p>
+
+                <p class="text">
+                
+                If you have any questions, comments or suggestions, send us a message here. We’ll get back to you as soon as we can.
+                
+                </p>
+            
             </div>
 
         </div>
-
-        <hr>
 
         <div class="row">
 
             <div class="col-12 justify-content-center">
-                <form role="form" method="POST" action="{% url 'contact' %}" class="c-form">
-                    {% csrf_token %}
-                    {{ contact_form | crispy }}
-                    <hr>
 
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success" action="submit">Send!</button>
-                    </div>
+                <form role="form" method="POST" action="{% url 'contact' %}">
+
+                    {% csrf_token %}
+
+                    {{ contact_form | as_bootstrap }}
                     
+                    <div class="d-flex justify-content-left">
+
+                        <button class="btn btn-success" action="submit">Send!</button>
+
+                    </div>
+
                 </form>
+
             </div>
 
         </div>
-
-        <hr>
 
     </div>
 </section>

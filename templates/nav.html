@@ -3,7 +3,7 @@
 <!-- <header id="navbar" class="sticky"> -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 
-        <a class="navbar-brand title" href="/"><img src="\media\images\glenfiddich_logo@2x (1).png" width=''30 height="30" alt="Cambrian Whiskey"></a>
+        <a class="navbar-brand title" href="/"><img src="\media\images\profile.png" width='45' height="40" alt="Cambrian Whiskey"></a>
 
         {% comment %} Mobile Menu Hamburger {% endcomment %}
 
@@ -25,7 +25,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">Contact Us</a>
+                    <a href="{% url 'contact' %}" class="nav-link">Contact Us</a>
                 </li>
 
             </ul>
@@ -34,7 +34,7 @@
             <div class="align-center mx-auto collapse navbar-collapse" id="searchbar">
 
                 <form class="form-inline my-2 my-lg-0 ml-auto" action="{% url 'search' %}" method="GET">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
                         name="q">
                     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -72,13 +72,17 @@
 
                     <a href="{% url 'view_cart' %}" class="nav-link cart-link">
                         <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+
                         {% if product_count %}
-                        <div id="cart">
-                            {{ product_count }}
-                        </div>
+
+                            <div id="cart">
+                                {{ product_count }}
+                            </div>
+
                         {% endif %}
+
                     </a>
-                    
+
                 </li>
 
             </ul>

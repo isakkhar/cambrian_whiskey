@@ -7,6 +7,7 @@ from accounts import url_reset
 # create a url patterns list
 
 urlpatterns = [
+
   url(r'^logout/$', logout, name='logout'),
   url(r'^login/$', login, name='login'),
   # we will pass through the registration view and we will give the view a name of registration
@@ -14,6 +15,7 @@ urlpatterns = [
   # user_profile underneath connects to the view function def user_profile and must include it above from accounts.view import user_profile
   url(r'^profile/$', user_profile, name='profile'),
   url(r'^password-reset/', include(url_reset)),
+  
 ]
 
 

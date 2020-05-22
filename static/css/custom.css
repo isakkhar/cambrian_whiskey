@@ -70,6 +70,16 @@ body {
     border: none;
 }
 
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  background-color: slategray;
+}
+
 /* Footer */
 
 .social-icons a {
@@ -168,6 +178,20 @@ body {
 .copyright-text
 {
   margin:0
+}
+
+/* media queries */
+
+@media (max-width: 470px) {
+  .flexbox-item {
+    border: 0px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .flexbox-item-2 {
+    display: block !important;
+  }
 }
 
 @media (max-width:991px)
@@ -286,13 +310,6 @@ body {
 /* badge: is the cart icon at the nav bar */
 /* we are using different webkits for different browsers. i.e moz for mozilla for firefox */
 
-.badge {
-  padding-left: 9px;
-  padding-right: 9px;
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
-}
 
 /* change the background color */
 
@@ -358,7 +375,160 @@ So a little trick there is to put in a min-height. */
   font-weight: lighter;
 }
 
+/* Cart Html */
 
+.cart-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #ad6f48;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  font-weight: 100;
+}
+
+.cart-title-text-thickness {
+  font-weight: 100;
+  letter-spacing: 5px;
+}
+
+.table-wrapper {
+  margin-bottom: 20px;
+}
+
+.cart-table-title {
+  display: block;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.underline-cart-title:after {
+  content: "";
+  width: 60px;
+  height: 1.5px;
+  background: #000;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cart-summary {
+  float: right;
+  position: relative;
+  width: 23%;
+}
+
+.cart-summary {
+  background: #fff;
+  border: 1px solid #666;
+  margin-bottom: 25px;
+  padding: 1px 15px 10px;
+}
+
+.cart-summary {
+  font-family: "GFModernLight",serif;
+    font-weight: 300 !important;
+    font-style: normal;
+    text-transform: capitalize;
+    color: #24231f;
+    border-color: #646464;
+}
+
+.summary-title {
+  display: block;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.checkout-button {
+    color: #fff;
+    background-color: #9d6f4d;
+    border-color: #9d6f4d;
+    height: 35px;
+    border-radius: 2px;
+}
+
+.checkout-button:hover {
+  color: #fff;
+  background-color: #bf8c6696;
+  border-color: #bf8c6696;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show>.btn-primary.dropdown-toggle {
+
+  color: #fff;
+  background-color: #9d6f4d;
+  border-color: #9d6f4d;
+
+}
+
+a {
+  color: #ffffff;
+}
+
+
+/* #cart-totals {
+  border-top: 1px solid #d1d1d1;
+  padding-top: 10px;
+} */
+
+.table-wrapper {
+    /* min-width: 100%; */
+    width: auto;
+    background: #fff;
+    padding: 0 15px;
+    border: 1px solid #666;
+    float: left;
+    position: relative;
+    width: 73%;
+
+}
+
+/* flexbox for cart.html */
+/* align-items attribute:fles start will set the container from the x axis, meaning the box will start from the top */
+
+.flexbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* align-content: center; */
+
+}
+
+.flexbox-item {
+  width: 200px;
+  margin: 10px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.flexbox-item-1 {
+  min-height: 200px;
+  order: 2;
+}
+
+.flexbox-item-2 {
+  min-height: 200px;
+  flex-grow: 1;
+  order: 1;
+  display: flex;
+
+}
+
+.product {
+  margin: 0;
+}
 
 
 

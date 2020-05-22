@@ -6,3 +6,5 @@ env.py
 *.jpg
 static/
 media/
+cart/templates/cart_ecom.html
+cart/templates/glen.html

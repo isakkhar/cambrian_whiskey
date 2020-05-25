@@ -1,38 +1,64 @@
 {% extends 'base.html' %}
+
 {% block title %}
+
 About Us
+
 {% endblock %}
+
 {% block content %}
-<section class="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="title">About Our Company</h1>
-                <hr>
-            </div>
-            <div class="col-12 col-lg-8">
-                <p class="text">
-                    For 20 years John Griffiths had a vision and dream to supply the ‘best whiskey the Uk has to offer’ to people from around the world. With the help of his family, he finally achieved that vision.
-                </p>
 
-                <p class="text">
-                    In the summer of 2006, with his two sons and daughter by his side, John set out to fulfil a lifelong ambition. Together they began building his wholesale whiskey distribution business. After a single year it was ready and John named it Cambrian Whiskey. Cambrian is the famous mountain range in Mid Wales where the business resides.
-                </p>
+    <section class="about">
 
-                <p class="text">
-                     John's passion, determination and pioneering spirit is the ethos of this business. It's family owned and is now one of the most respected and "go to" establishments to search for the finest Whiskey the World has to offer. This is a true reflection of our ambition and pride in what we do.
-                </p>
+        <div class="container">
 
-                {% comment %} <p class="text"><small> We maintain the collection in London, and antiques      can be seen by appointment.</small>
-                </p> {% endcomment %}
+            <div class="row">
+
+                <div class="col-12">
+
+                    <h1 class="about-title">About Our Company</h1>
+
+                    <hr>
+
+                </div>
+
+                <div class="col-12 col-lg-8">
+
+                    <p class="text">
+                        For 20 years John Griffiths had a vision and dream to supply the ‘best whiskey the Uk has to offer’ to people from around the world. With the help of his family, he finally achieved that vision.
+                    </p>
+
+                    <p class="text">
+                        In the summer of 2006, with his two sons and daughter by his side, John set out to fulfil a lifelong ambition. Together they began building his wholesale whiskey distribution business. After a single year it was ready and John named it Cambrian Whiskey. Cambrian is the famous mountain range in Mid Wales where the business resides.
+                    </p>
+
+                    <p class="text">
+                        John's passion, determination and pioneering spirit is the ethos of this business. It's family owned and is now one of the most respected and "go to" establishments to search for the finest Whiskey the World has to offer. This is a true reflection of our ambition and pride in what we do.
+                    </p>
+
+                    {% comment %} 
+                    
+                        <p class="text">
+                            
+                            <small> We maintain the collection in London, and antiques can be seen by appointment.</small>
+
+                        </p> 
+                    
+                    {% endcomment %}
+                
+                </div>
+
+                <div class="col-12 col-lg-4 a-img-cont">
+
+                    <img class="img-fluid img-thumbnail" src="\media\images\about_picture.jpg" alt="Responsive image">
+
+                </div>
             
             </div>
 
-            <div class="col-12 col-lg-4 a-img-cont">
-                <img class="img-fluid img-thumbnail" src="\media\images\about_picture.jpg" alt="Responsive image">
-            </div>
         </div>
-    </div>
-</section>
+
+    </section>
+
 {% endblock %}
 

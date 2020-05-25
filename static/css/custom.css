@@ -44,6 +44,8 @@ body {
 
 .form-control {
   height: 35px;
+  width: 350px;
+  margin: auto;
 }
 
 .form-control:focus {
@@ -78,6 +80,76 @@ body {
   -moz-border-radius: 9px;
   border-radius: 9px;
   background-color: slategray;
+}
+
+/* About html */
+
+.about-title {
+  color: #9d6f4d; 
+}
+
+/* Login html */
+
+.login-title {
+  font-family: GFModern,sans-serif;
+  font-weight: 700;
+  color: #9d6f4d;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0 0 20px;
+}
+
+.login-input-position {
+  margin-top: 55px;
+  margin-left: 20px;
+}
+
+.image-login {
+  justify-content: start !important;
+}
+
+.login-image {
+  width: auto;
+  object-fit: cover;
+  margin-left: 0px;
+  margin-right: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.flexbox-login-1 {
+  min-height: 200px;
+  order: 2;
+  display: flex;
+}
+
+.flexbox-login-2 {
+  min-height: 200px;
+  flex-grow: 1;
+  order: 1;
+  display: flex;
+
+}
+
+.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show>.btn-success.dropdown-toggle {
+
+  color: #fff;
+  background-color: #9d6f4d;
+  border-color: #9d6f4d;
+
+}
+
+.btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show>.btn-success.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgb(157, 111, 77);
+  box-shadow: 0 0 0 0.2rem rgb(157, 111, 77);
+}
+
+.btn-success:focus, .btn-success.focus {
+  color: #fff;
+  background-color: #9d6f4d;
+  border-color: #9d6f4d;
+  -webkit-box-shadow: 0 0 0 0.2rem rgb(157, 111, 77);
+  box-shadow: 0 0 0 0.2rem rgb(157, 111, 77);
 }
 
 /* Footer */
@@ -178,6 +250,13 @@ body {
 .copyright-text
 {
   margin:0
+}
+
+/* link element */
+
+.password-link {
+  color: #9d6f4d !important;
+  float: right;
 }
 
 /* media queries */
@@ -318,6 +397,12 @@ body {
   background-color: #c67605;
 }
 
+/* Products html file */
+
+.product-title-to-image-margin {
+  margin-top: 15px;
+}
+
 /* the div with class product is for the product image in the products.html file */
 .product {
   /* contain so that it remains within the div and not overflow */
@@ -351,11 +436,13 @@ So we're adding a border-color: transparent. */
 .panel-default {
   border-color: transparent;
   padding: 0 10px;
+  margin-bottom: 20px;
 }
 
 .panel-body {
   height: 100%;
   border: 1px solid #ddd;
+  background-color: gainsboro;
 }
 
 /* Within our product description, if you had different lengths of descriptions of each product, you would run into a problem where your <div> height would vary.
@@ -365,7 +452,50 @@ So a little trick there is to put in a min-height. */
   min-height: 40px;
 }
 
+/* Registration html */
+
+.registration-form-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #000;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sign-in-link-registrationform {
+  color: #9d6f4d !important;
+  float: inherit;
+}
+
+.registration-form-container {
+  border: solid #9d6f4d;
+  margin: auto;
+  padding: 25px;
+  max-width: 600px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.centre-text-inside-form-container {
+  margin: auto;
+}
+
 /* Contact html */
+
+.wrapper-button {
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.contact-form-position {
+  text-align: center;
+}
 
 .contact_title {
   margin: 60px 0 40px;
@@ -375,7 +505,15 @@ So a little trick there is to put in a min-height. */
   font-weight: lighter;
 }
 
+.justify-content-center {
+  justify-content: center !important;
+}
+
 /* Cart Html */
+
+.cart-option-to-shop-link {
+  color: #ad6f48;
+}
 
 .cart-title {
   text-align: center;
@@ -390,6 +528,7 @@ So a little trick there is to put in a min-height. */
 .cart-title-text-thickness {
   font-weight: 100;
   letter-spacing: 5px;
+  margin-top: 10rem;
 }
 
 .table-wrapper {
@@ -474,6 +613,12 @@ So a little trick there is to put in a min-height. */
 
 a {
   color: #ffffff;
+}
+
+.if-no-items {
+  text-align: center;
+  margin-bottom: 15rem;
+  font-size: 20px;
 }
 
 

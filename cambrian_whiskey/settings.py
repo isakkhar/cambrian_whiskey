@@ -157,7 +157,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# media_url is the reference URL for browser to access the files over Http
 MEDIA_URL = '/media/'
+
+# MEDIA_ROOT is for server path to store files in the computer.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # STATICFILES_STORAGE = 'custom_storages.StaticStorage'

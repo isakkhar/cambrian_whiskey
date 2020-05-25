@@ -8,64 +8,57 @@ Contact Us
 
 {% endblock %}
 
-{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
 {% block content %}
 
-<section class="contact">
-    
-    <div class="container">
-{% comment %} 
-        <div class="row">
-            
-            <h1 class="title">Contact Us</h1>
+    <section class="contact">
         
-        </div> {% endcomment %}
+        <div class="container">
 
-        <div class="row contact_title">
+            <div class="row contact_title">
 
-            <div class="col-12">
+                <div class="col-12">
 
-                <p class="text">
-            
-                    GET IN TOUCH
-
-                </p>
-
-                <p class="text">
+                    <p>
                 
-                If you have any questions, comments or suggestions, send us a message here. We’ll get back to you as soon as we can.
-                
-                </p>
-            
-            </div>
+                        GET IN TOUCH
 
-        </div>
+                    </p>
 
-        <div class="row">
-
-            <div class="col-12 justify-content-center">
-
-                <form role="form" method="POST" action="{% url 'contact' %}">
-
-                    {% csrf_token %}
-
-                    {{ contact_form | as_bootstrap }}
+                    <p class="text">
                     
-                    <div class="d-flex justify-content-left">
+                        If you have any questions, comments or suggestions, send us a message here. We’ll get back to you as soon as we can.
+                    
+                    </p>
+                
+                </div>
 
-                        <button class="btn btn-success" action="submit">Send!</button>
+            </div>
 
-                    </div>
+            <div class="wrapper contact-form-position">
 
-                </form>
+                <div>
+
+                    <form role="form" method="POST" action="{% url 'contact' %}">
+
+                        {% csrf_token %}
+
+                        {{ contact_form | as_bootstrap }}
+                        
+                        <div class="justify-content-left wrapper-button">
+
+                            <button class="btn btn-success" action="submit">Send!</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
-</section>
-
+    </section>
 
 {% endblock %}

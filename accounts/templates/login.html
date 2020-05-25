@@ -9,21 +9,35 @@
 
 {% block content %}
 
-    <form action="" method="POST">
-      <!-- we use the % sign instead of curly braces as this is a reference to a function  -->
-        {% csrf_token %}
+    <div class="flexbox-container image-login">
+        
+        <div>
 
-        {{ login_form | as_bootstrap }}
+            <img class="login-image" src="\media\images\cam-whisk-login-photo.jpg" alt="">
+        
+        </div>
+        
+        <div class="login-input-position">
 
-        <button type='submit' class="btn btn-default">Login</button>
+        <h3 class="login-title">Already Registered</h3>
 
-    </form>
+            <form action="" method="POST">
 
-    <p>
+                <!-- we use the % sign instead of curly braces as this is a reference to a function  -->
 
-        <a href='{% url "password_reset" %}'>Reset Password</a>
+                {% csrf_token %}
 
-    </p>
+                {{ login_form | as_bootstrap }}
+
+                <button action='submit' class="btn btn-success">Login</button>
+                
+                <a class="password-link" href='{% url "password_reset" %}'>I've lost my password</a>   
+            
+            </form>
+
+        </div>
+
+    </div>
 
 {% endblock %}
 

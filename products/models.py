@@ -7,15 +7,15 @@ class Product(models.Model):
   REGION = 'region'
   EUROPE = 'europe'
   AMERICA = 'america'
-  REST_OF_WORLD = 'rest_of_world'
+  REST_OF_WORLD = 'rest of world'
   PRODUCT_REGION_CHOICES = (
     (EUROPE, 'Europe'),
     (AMERICA, 'America'),
-    (REST_OF_WORLD, 'Rest_Of_World')
+    (REST_OF_WORLD, 'Rest Of World')
   )
 
   title = models.CharField(max_length=254, default='')
-  description = models.TextField(max_length=800, blank=False)
+  description = models.TextField(max_length=850, blank=False)
   price = models.DecimalField(max_digits=8, decimal_places=2)
   image = models.ImageField(upload_to='images', null=True)
   region = models.CharField(max_length=13, choices=PRODUCT_REGION_CHOICES, default=EUROPE)

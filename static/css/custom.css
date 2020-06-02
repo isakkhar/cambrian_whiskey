@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Times New Roman', Times, serif;
   padding-top: 0px;
@@ -166,6 +167,7 @@ body {
   font-size:15px;
   line-height:24px;
   color:#737373;
+  margin-top: 30px;
 }
 
 .footer-fontsize {
@@ -398,6 +400,31 @@ body {
 }
 
 /* Products html file */
+
+.product-price-position {
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+
+.card-title-font {
+  font-weight: 100;
+}
+
+.card-text-font {
+  /* font-family: 'CeraCompactCY-Regular'; */
+  text-align: center;
+
+}
+
+
+.card-title {
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #9d6f4d;
+}
 
 .product-title-to-image-margin {
   margin-top: 15px;
@@ -670,12 +697,6 @@ a {
   display: flex;
 
 }
-
-.product {
-  margin: 0;
-}
-
-
 
 
 

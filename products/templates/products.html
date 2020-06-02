@@ -1,50 +1,60 @@
 <!-- extends from base.html -->
-
 {% extends 'base.html' %}
 
 {% block content %}
 
-  <div class="row row-flex">
+  <div class="container" style="margin-bottom: 40px;">
 
-    {% for product in products%}
+    <div class="row row-flex">
 
-      <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-    
-        <div class="panel-body">
+      {% for product in products%}
 
-          <div class="product img-responsive" style="margin:0; width: auto; background-image: url('{{ MEDIA_URL }}{{ product.image }}');background-size:cover"></div>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4">
+      
+          <div class="card-deck">
 
-          <h3 class="product-title-to-image-margin">{{ product.title }}</h3>
-    
-          <p class="product-description">{{ product.description }}</p>
-    
-          <p>{{ product.price }}</p>
-          <!-- also provide someway of adding it to your basket so we will introduce the form  -->
+            <div class="card">
 
-          <form method="post" action="{% url 'add_to_cart' product.id %}">
-    
-            {% csrf_token %}
-    
-            <div class="input-group">
-    
-              <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-    
-              <span class="input-group-btn">
-    
-                <button class="btn btn-success" type="submit">Add</button>
-    
-              </span>
-    
+            <div class="product img-responsive card-img-top" style="margin:0; height: 280px; width: auto; background-image: url('{{ MEDIA_URL }}{{ product.image }}'); background-size:cover"></div>
+
+            <div class="card-body">
+
+              <h3 class="card-title card-title-font">{{ product.title }}</h3>
+        
+              <p class="card-text card-text-font">{{ product.description }}</p>
+        
+              <p class="card-text product-price-position">{{ product.price }}</p>
+              <!-- also provide someway of adding it to your basket so we will introduce the form  -->
             </div>
-    
-          </form>
-    
+
+            <div class="card-footer">
+
+              <form method="post" action="{% url 'add_to_cart' product.id %}">
+        
+                {% csrf_token %}
+        
+                <div class="input-group">
+        
+                  <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+        
+                  <span class="input-group-btn">
+        
+                    <button class="btn btn-success" type="submit">Add</button>
+        
+                  </span>
+        
+                </div>
+        
+              </form>
+            </div>
+            </div>
+      
         </div>
+        </div>      
+      {% endfor %}
     
-      </div>
-    
-    {% endfor %}
-  
+    </div>
+
   </div>
 
 {% endblock %}

@@ -401,6 +401,10 @@ body {
 
 /* Products html file */
 
+.height-deck-box {
+  height: 100%;
+}
+
 .product-price-position {
   text-align: center;
   font-weight: 300;

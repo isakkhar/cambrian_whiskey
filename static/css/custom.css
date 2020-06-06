@@ -399,16 +399,52 @@ body {
   background-color: #c67605;
 }
 
+/* Pagination */
+
+.pagination {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.page-link {
+  color: #a0704d !important;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: white !important;
+  background-color: #9d6f4d !important;
+  border-color: #9d6f4d !important;
+}
+
 /* Products html file */
+
+.product-card-box {
+  margin-bottom: 10px;
+}
+
+.content-box {
+  /* height: 150px; */
+  max-height: 150px;
+}
+
+.card-text:last-child {
+  align-items: center;
+  font-family: 'GFModernLight',serif;
+  font-weight: 300;
+  color: #24231f;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: left;
+}
 
 .height-deck-box {
   height: 100%;
 }
 
 .product-price-position {
-  text-align: center;
-  font-weight: 300;
   font-size: 1.5rem;
+  text-align: center !important;
 }
 
 
@@ -416,9 +452,15 @@ body {
   font-weight: 100;
 }
 
+.card-text {
+  overflow: hidden;
+  max-height: 150px;
+}
+
 .card-text-font {
-  /* font-family: 'CeraCompactCY-Regular'; */
   text-align: center;
+  height: 40%;
+  margin-bottom: 15px;
 
 }
 
@@ -428,6 +470,7 @@ body {
   text-transform: uppercase;
   text-align: center;
   color: #9d6f4d;
+  height: 150px;
 }
 
 .product-title-to-image-margin {

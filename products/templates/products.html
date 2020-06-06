@@ -7,27 +7,39 @@
 
       <div class="row row-flex">
 
-        {% for product in products%}
+        {% for product in page.object_list %}
 
-          <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 product-card-box">
       
               <div class="card-deck height-deck-box">
 
                 <div class="card">
 
-                <div class="product img-responsive card-img-top" style="margin:0; height: 280px; width: auto; background-image: url('{{ MEDIA_URL }}{{ product.image }}'); background-size:cover"></div>
+                  <div class="product img-responsive card-img-top" style="margin:0; height: 280px; width: auto; background-image: url('{{ MEDIA_URL }}{{ product.image }}'); background-size:cover"></div>
 
-                <div class="card-body">
+                  <div class="card-body">
+                    
+                    <div content-box>
+    
+                      <h3 class="card-title card-title-font">{{ product.title|truncatechars:40 }}</h3>
+                      
+                    </div>
 
-                  <h3 class="card-title card-title-font">{{ product.title }}</h3>
-          
-                  <p class="card-text card-text-font">{{ product.description|truncatechars:150 }}</p>
-          
-                  <p class="card-text product-price-position">{{ product.price }}</p>
-                  <!-- also provide someway of adding it to your basket so we will introduce the form  -->
-                </div>
+                    <div class="content-box">
 
-                <div class="card-footer">
+                      <p class="card-text card-text-font">{{ product.description|truncatechars:175 }}</p>
+
+                    </div>
+
+                    <div class="content-box">
+
+                      <p class="card-text product-price-position">£ {{ product.price }}</p>
+
+                    </div>
+                      <!-- also provide someway of adding it to your basket so we will introduce the form  -->
+                  </div>
+
+                  <div class="card-footer">
 
                   <form method="post" action="{% url 'add_to_cart' product.id %}">
           
@@ -46,7 +58,7 @@
                     </div>
           
                   </form>
-              
+                
                 </div>
 
               </div>
@@ -58,6 +70,48 @@
         {% endfor %}
     
       </div>
+
+      <nav aria-label="...">
+
+        <ul class="pagination justify-content-center ">
+
+          <li class="page-item {% if not prev_page_url %} disabled {% endif %}">
+
+            <a class="page-link" href="{{ prev_page_url }}" tabindex="-1" aria-disabled="true">Previous</a>
+
+          </li>
+
+          {% for n in page.paginator.page_range %}
+
+            {% if page.number == n %}
+
+              <li class="page-item active" aria-current="page">
+
+                <a class="page-link" href="?page={{ n }}">{{ n }} <span class="sr-only">(current)</span></a>
+
+              </li>
+
+              {% elif n > page.number|add:-3 and n < page.number|add:3 %}
+
+                <li class="page-item">
+
+                  <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+
+                </li>
+
+            {% endif %}
+
+          {% endfor %}
+
+          <li class="page-item {% if not next_page_url %} disabled {% endif %}">
+
+            <a class="page-link" href="{{ next_page_url }}">Next</a>
+
+          </li>
+
+        </ul>
+        
+      </nav>
 
     </div>
 

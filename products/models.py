@@ -23,6 +23,9 @@ class Product(models.Model):
   def __str__(self):
     return self.title
 
+  class Meta:
+    ordering = ['-price']
+
 class Product_description(models.Model):
   title = models.CharField(max_length=254, default='')
   description = models.TextField(max_length=800, blank=False)

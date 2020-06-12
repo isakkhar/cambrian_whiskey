@@ -75,7 +75,66 @@
         
       </div>
 
-      <div class="flexbox-item flexbox-item-2">
+      <div class="card mb-3 cart-box-width">
+
+        <div class="row no-gutters">
+
+          <div class="col-md-2 product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}');background-size:cover">
+          </div>
+
+          <div class="col-md-4">
+
+            <div class="card-body">
+
+              <h5 class="card-title">{{ item.product.title }}</h5>
+
+            </div>
+
+          </div>
+          
+          <div class="col-md-2">
+
+            <form method="post" action="{% url 'adjust_cart' item.id %}" booclass="form-inline">
+
+              {% csrf_token %}
+              
+              <div class="form-group">
+  
+                <label for="exampleInputAmount" class="sr-only">New Qty</label>
+  
+                 <div class="input-group">
+  
+                  <div class="input-group-addon">Qty</div>
+  
+                  <input name="quantity" type="number" min="0" max="99999" class="form-control">
+  
+                  <div class="input-group-addon">{{ item.quantity}}</div>
+  
+                </div>
+  
+              </div>
+
+              <div class="col-md-2">
+  
+                <button class="btn btn-primary checkout-button" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+              
+              </div>   
+            
+            </form>
+            
+          </div>
+
+          <div class="col-md-2">
+            
+            <p> £{{ item.product.price }}</p>
+            
+          </div>
+
+        </div>
+        
+      </div>
+
+      <!-- <div class="flexbox-item flexbox-item-2">
 
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}');background-size:cover"></div>
 
@@ -95,19 +154,19 @@
 
           <p> £{{ item.product.price }}</p>
         
-        </div>
+        </div> -->
         
-        <div>
+        <!-- <div>
 
           <form method="post" action="{% url 'adjust_cart' item.id %}" class="form-inline">
 
             {% csrf_token %}
             
-            <div class="form-group">
+            <div class="form-group"> 
 
-              <!-- <label for="exampleInputAmount" class="sr-only">New Qty</label> -->
+              <label for="exampleInputAmount" class="sr-only">New Qty</label>
 
-              <div class="input-group">
+               <div class="input-group">
 
                 <div class="input-group-addon">Qty</div>
 
@@ -123,9 +182,11 @@
           
           </form>
 
-        </div>
+          fimish 
+
+        </div> -->
       
-      </div>
+      </div> 
 
     {% endfor %}
 

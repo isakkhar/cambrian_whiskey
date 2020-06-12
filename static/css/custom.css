@@ -295,6 +295,7 @@ body {
   }
 }
 
+
 .social-icons
 {
   padding-left:0;
@@ -489,8 +490,14 @@ body {
   width: 150px;
   height: 150px;
   /* auto is just to center the div within the other divs */
-  margin: 0 auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
+
+
+
 
 /* So within our caption paragraph, which is where we describe the product, we're putting in some word-wrap so that the text will wrap within the <div>, or within the paragraph, and won't overflow. */
 caption p {
@@ -584,6 +591,14 @@ label {
 }
 
 /* Cart Html */
+
+.no-gutters {
+  border: 1px solid black;
+}
+
+.cart-box-width {
+  max-width: 700px !important;
+}
 
 .cart-option-to-shop-link {
   color: #ad6f48;
@@ -735,6 +750,7 @@ a {
 .flexbox-item-1 {
   min-height: 200px;
   order: 2;
+  margin-top: 0px;
 }
 
 .flexbox-item-2 {

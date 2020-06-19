@@ -75,138 +75,19 @@
         
       </div>
 
-      <div class="card mb-3 cart-box-width">
+      <div class="flexbox-item flexbox-item-2">
 
-        <div class="row no-gutters">
-
-          <div class="col-md-2 product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}');background-size:cover">
-          </div>
-
-          <div class="col-md-4">
-
-            <div class="card-body">
-
-              <h5 class="card-title">{{ item.product.title }}</h5>
-
-            </div>
-
-          </div>
-          
-          <div class="col-md-2">
-
-            <form method="post" action="{% url 'adjust_cart' item.id %}" booclass="form-inline">
-
-              {% csrf_token %}
-              
-              <div class="form-group">
-  
-                <label for="exampleInputAmount" class="sr-only">New Qty</label>
-  
-                 <div class="input-group">
-  
-                  <div class="input-group-addon">Qty</div>
-  
-                  <input name="quantity" type="number" min="0" max="99999" class="form-control">
-  
-                  <div class="input-group-addon">{{ item.quantity}}</div>
-  
-                </div>
-  
-              </div>
-
-              <div class="col-md-2">
-  
-                <button class="btn btn-primary checkout-button" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-              
-              </div>   
-            
-            </form>
-            
-          </div>
-
-          <div class="col-md-2">
-            
-            <p> £{{ item.product.price }}</p>
-            
-          </div>
+        <div class="col-md-2 product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}');background-size:cover">
 
         </div>
-        
-      </div>
 
-      <!-- <div class="flexbox-item flexbox-item-2">
+        <div class="col-md-4">
 
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}');background-size:cover"></div>
+            <h5 class="cart-title">{{ item.product.title }}</h5>
 
-        <div> 
-          
-          <h3>{{ item.product.title }}</h3>
-        
         </div>
-        
-        <div> 
 
-          <p class="product-description">{{ item.product.description }}</p>
-        
-        </div>
-        
-        <div>
-
-          <p> £{{ item.product.price }}</p>
-        
-        </div> -->
-        
-        <!-- <div>
-
-          <form method="post" action="{% url 'adjust_cart' item.id %}" class="form-inline">
-
-            {% csrf_token %}
-            
-            <div class="form-group"> 
-
-              <label for="exampleInputAmount" class="sr-only">New Qty</label>
-
-               <div class="input-group">
-
-                <div class="input-group-addon">Qty</div>
-
-                <input name="quantity" type="number" min="0" max="99999" class="form-control">
-
-                <div class="input-group-addon">{{ item.quantity}}</div>
-
-              </div>
-
-            </div>
-
-            <button class="btn btn-primary checkout-button" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-          
-          </form>
-
-          fimish 
-
-        </div> -->
-      
-      </div> 
-
-    {% endfor %}
-
-  </div>
-  
-{% endblock %}
-
- 
-
-      <!-- <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}');"></div> -->
-
-      <!-- <div class="caption"> -->
-
-        <!-- <h3>{{ item.product.title }}</h3> -->
-
-        <!-- <p class="product-description">{{ item.product.description }}</p> -->
-
-        <!-- <p>{{ item.product.price }}</p> -->
-        <!-- here we will create a form which will include an input where we can adjust the number of items we wish to purchase  -->
-        <!-- <p>
+        <div class="col-md-2">
 
           <form method="post" action="{% url 'adjust_cart' item.id %}" class="form-inline">
 
@@ -216,26 +97,41 @@
 
               <label for="exampleInputAmount" class="sr-only">New Qty</label>
 
-              <div class="input-group">
+               <div class="input-group">
 
                 <div class="input-group-addon">Qty</div>
 
-                <input name="quantity" type="number" min="0" max="99999" class="form-control">
+                <input name="quantity" type="number" min="0" max="99999" class="form-control product-amount-box">
 
                 <div class="input-group-addon">{{ item.quantity}}</div>
 
               </div>
 
             </div>
+        
+        </div>
 
-            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+        <div class="col-md-2">
+
+          <button class="btn btn-primary btn-sm amend-button-position" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+        
+        </div>   
           
           </form>
+        
+        <div class="col-md-2 cart-price-font">
 
-        </p> -->
-
-      <!-- </div> -->
-
-    <!-- </div> -->
-
+          <p class="cart-price-font"> £{{ item.product.price }}</p>
   
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div> 
+  
+{% endblock %}
+
+ 
+

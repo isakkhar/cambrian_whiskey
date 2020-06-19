@@ -492,8 +492,8 @@ body {
   /* auto is just to center the div within the other divs */
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 
@@ -592,6 +592,45 @@ label {
 
 /* Cart Html */
 
+.cart-price-font {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.cart-price-font {
+  font-family: 'Times New Roman', serif !important;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  color: #fff;
+  background-color: #9d6f4d;
+  border-color: #9d6f4d;
+  -webkit-box-shadow: 0 0 0 0.2rem rgb(157, 111, 77);
+  box-shadow: 0 0 0 0.2rem rgb(157, 111, 77);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #bf8c6696;
+  border-color: #9d6f4d;
+}
+
+.amend-button-position {
+  margin-bottom: 16px !important;
+  background-color: #9d6f4d;
+  border: #9d6f4d;
+  height: 30px;
+  width: 60px;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.product-amount-box {
+  width: 70px !important;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
 .no-gutters {
   border: 1px solid black;
 }
@@ -605,8 +644,8 @@ label {
 }
 
 .cart-title {
-  text-align: center;
-  text-transform: uppercase;
+  text-align: left;
+  text-transform: capitalize;
   color: #ad6f48;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -618,6 +657,8 @@ label {
   font-weight: 100;
   letter-spacing: 5px;
   margin-top: 10rem;
+  text-align: center !important;
+  text-transform: u ppercase;
 }
 
 .table-wrapper {
@@ -736,11 +777,14 @@ a {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+  margin: auto;
   /* align-content: center; */
 
 }
 
 .flexbox-item {
+  align-items: center;
+  justify-content: left;
   width: 200px;
   margin: 10px;
   border: 1px solid black;

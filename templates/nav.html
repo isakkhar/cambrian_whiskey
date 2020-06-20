@@ -35,7 +35,7 @@
 
                 <form class="form-inline my-2 my-lg-0 ml-auto" action="{% url 'search' %}" method="GET">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
-                        name="q">
+                        name="q" required>
                     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
 
@@ -70,7 +70,7 @@
 
                 <li class="nav-item shopping-cart">
 
-                    <a href="{% url 'view_cart' %}" class="nav-link cart-link">
+                    <a href="{% url 'view_cart' %}" class="nav-link cart-link cart-logo">
                         <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
 
                         {% if product_count > 0 %}

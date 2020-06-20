@@ -592,6 +592,16 @@ label {
 
 /* Cart Html */
 
+.badge-warning {
+  color: #fff;
+  background-color: #9d6f4d;
+  margin-top: -15px;
+}
+
+.cart-logo {
+  margin-top: -4px;
+}
+
 .cart-price-font {
   font-family: 'Times New Roman', Times, serif;
 }
@@ -656,9 +666,9 @@ label {
 .cart-title-text-thickness {
   font-weight: 100;
   letter-spacing: 5px;
-  margin-top: 10rem;
+  margin-top: 2rem;
   text-align: center !important;
-  text-transform: u ppercase;
+  text-transform: uppercase;
 }
 
 .table-wrapper {
@@ -719,12 +729,51 @@ label {
   text-align: center;
 }
 
+/* Checkout html */
+
+.payment-details-title {
+  color: #24231f;
+  font-family: "GFModernLight",serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+.checkout-form-position {
+  text-align: center;
+  margin: auto;
+}
+
+.checkout-totalprice {
+  font-size: 20px;
+}
+
+.item-quantity-totalprice-checkout {
+  font-size: 20px;
+}
+
+.checkout-item-title {
+  font-size: 16px;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #9d6f4d;
+  letter-spacing: 1px;
+}
+
+.checkout-summary-box {
+  width: 275px !important;
+}
+
 .checkout-button {
     color: #fff;
     background-color: #9d6f4d;
     border-color: #9d6f4d;
     height: 35px;
     border-radius: 2px;
+    width: -webkit-fill-available;
+    margin: 25px;
 }
 
 .checkout-button:hover {
@@ -794,7 +843,6 @@ a {
 .flexbox-item-1 {
   min-height: 200px;
   order: 2;
-  margin-top: 0px;
 }
 
 .flexbox-item-2 {

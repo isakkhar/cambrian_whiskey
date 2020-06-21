@@ -731,13 +731,36 @@ label {
 
 /* Checkout html */
 
+.checkout-cambrian-logo {
+  justify-content: center;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.checkout-submit-payment {
+  background-color: #9d6f4d;
+  color: white;
+  border-radius: 2px;
+}
+
+.checkout-submit-payment:hover {
+  color: #fff;
+  background-color: #bf8c6696;
+  border-color: #bf8c6696;
+}
+
 .payment-details-title {
   color: #24231f;
   font-family: "GFModernLight",serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
+  margin-bottom: -10px;
+  border-bottom: 2px solid #ccc;
+  width: 347px;
+  margin-left: 130px;
 }
 
 .checkout-form-position {
@@ -850,7 +873,8 @@ a {
   flex-grow: 1;
   order: 1;
   display: flex;
-
+  background-color: #f3f3f3;
+  border: 0px;
 }
 
 

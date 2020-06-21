@@ -4,7 +4,7 @@ from products.models import Product
 # Create your models here. what is going to go into our database, all the info u might require from a customer
 
 class Order(models.Model):
-  full_name = models.CharField(max_length=50, blank=False, default='Aled Griffiths')
+  full_name = models.CharField(max_length=50, blank=False, default='')
   phone_number = models.CharField(max_length=20, blank=False)
   country = models.CharField(max_length=40, blank=False)
   postcode = models.CharField(max_length=20, blank=True)

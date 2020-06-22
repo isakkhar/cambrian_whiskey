@@ -21,6 +21,16 @@ class OrderForm(forms.ModelForm):
   class Meta:
     
     model = Order
+
     fields = ('full_name', 'street_address1', 'street_address2', 'town_or_city', 'county',  'country', 'postcode', 'phone_number')
+
+    widgets = {
+            'full_name': forms.TextInput(attrs={'placeholder': 'Full Name'}),
+            'street_address1': forms.TextInput(attrs={'placeholder': 'Address line 1'}), 'street_address2': forms.TextInput(attrs={'placeholder': 'Address line 2'}), 'town_or_city': forms.TextInput(attrs={'placeholder': 'Town/City'}), 
+            'county': forms.TextInput(attrs={'placeholder': 'County'}), 
+            'country': forms.TextInput(attrs={'placeholder': 'Country'}), 
+            'postcode': forms.TextInput(attrs={'placeholder': 'Address line 1'}), 
+            'phone_number': forms.TextInput(attrs={'placeholder': 'Phone Number'})
+        }
 
 

@@ -760,7 +760,7 @@ label {
   margin-bottom: -10px;
   border-bottom: 2px solid #ccc;
   width: 347px;
-  margin-left: 130px;
+  margin-left: 57px;
 }
 
 .checkout-form-position {
@@ -874,7 +874,10 @@ a {
   order: 1;
   display: flex;
   background-color: #f3f3f3;
-  border: 0px;
+  text-align: left;
+  padding-right: 145px;
+  max-width: 500px;
+  border: 0;
 }
 
 

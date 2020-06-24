@@ -761,6 +761,7 @@ label {
   border-bottom: 2px solid #ccc;
   width: 347px;
   margin-left: 57px;
+  margin-bottom: 10px;
 }
 
 .checkout-form-position {
@@ -874,13 +875,17 @@ a {
   order: 1;
   display: flex;
   background-color: #f3f3f3;
+}
+
+.cart-flexbox-with-border {
+  border: 1px solid !important;
+}
+
+.removing-border-checkout-flexbox {
   text-align: left;
   padding-right: 145px;
   max-width: 500px;
   border: 0;
 }
-
-
-
 
 

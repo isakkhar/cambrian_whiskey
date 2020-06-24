@@ -11,7 +11,7 @@ def all_products_view(request):
   """return all the products in the database
   """
   products = Product.objects.all()
-  paginator = Paginator(products, 3)
+  paginator = Paginator(products, 6)
   page_number = request.GET.get('page', 1)
   page = paginator.page(page_number)
   """render a products html page and within that page we will have access to products, so all_products"""

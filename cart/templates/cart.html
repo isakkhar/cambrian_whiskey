@@ -58,7 +58,7 @@
             
         </div>
 
-        <div class="flexbox-item flexbox-item-2">
+        <div class="flexbox-item flexbox-item-2 cart-flexbox-with-border">
 
           <div class="col-md-2 product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}');background-size:cover"></div>
 
@@ -106,6 +106,12 @@
       
             </div>
         
+        </div>
+        
+        <div class="container">
+          
+          <a class="btn btn-primary checkout-button" href="{% url 'products' %}" role="button">Continue Shoppping</a>
+          
         </div>
 
         {% empty %}

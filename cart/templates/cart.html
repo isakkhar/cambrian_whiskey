@@ -16,7 +16,7 @@
       
       </div>
 
-      <div class="flexbox-container">
+      <div class="flexbox-container col-12">
         
         <div class="flexbox-item flexbox-item-1">
           
@@ -106,42 +106,40 @@
       
             </div>
         
-        </div>
+      </div>
         
-        <div class="container">
-          
-          <a class="btn btn-primary checkout-button" href="{% url 'products' %}" role="button">Continue Shoppping</a>
-          
-        </div>
+      <div class="container">
+        
+        <a class="btn btn-primary checkout-button" href="{% url 'products' %}" role="button">Continue Shoppping</a>
 
-        {% empty %}
+      </div>
 
-        <div class="wrapper cart-title">
+      {% empty %}
 
-          <h1 class="cart-title-text-thickness underline-cart-title">Shopping Basket</h1>
-          
-        </div>
-      
-        <div class="container if-no-items">
-      
-          <p>
-      
-            You have no items in your shopping cart. 
-          
-          </p>
-      
-          <p>
-      
-            Click <a class="cart-option-to-shop-link" href="{% url 'products' %}" role="button">here</a> to continue shopping. 
-      
-          </p>
-      
-        </div>
+      <div class="wrapper cart-title">
+
+        <h1 class="cart-title-text-thickness underline-cart-title">Shopping Basket</h1>
+        
+      </div>
+    
+      <div class="container if-no-items">
+    
+        <p>
+    
+          You have no items in your shopping cart. 
+        
+        </p>
+    
+        <p>
+    
+          Click <a class="cart-option-to-shop-link" href="{% url 'products' %}" role="button">here</a> to continue shopping. 
+    
+        </p>
+    
+      </div>
 
     {% endfor %}
 
   </div> 
   
 {% endblock %}
-
- 

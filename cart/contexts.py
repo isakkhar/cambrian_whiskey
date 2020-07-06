@@ -7,7 +7,7 @@ def cart_contents(request):
   """
   Ensures that the cart contents are available when rendering every page
   """
-  """ here we have a cart thats requesting the session so request the existing cart if there is one and a blank dictionary if theres isnt one
+  """ here we have a cart thats requesting the session so request the existing cart if there is one and a blank dictionary if there isnt one
   """
 
   cart = request.session.get('cart', {})

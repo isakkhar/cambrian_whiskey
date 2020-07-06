@@ -731,6 +731,12 @@ label {
 
 /* Checkout html */
 
+legend {
+  font-size: 2rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
 .checkout-cambrian-logo {
   justify-content: center;
   text-align: center;
@@ -788,6 +794,7 @@ label {
 
 .checkout-summary-box {
   width: 275px !important;
+  margin-top: 60px !important;
 }
 
 .checkout-button {
@@ -796,8 +803,9 @@ label {
     border-color: #9d6f4d;
     height: 35px;
     border-radius: 2px;
-    width: -webkit-fill-available;
+    width: auto;
     margin: 25px;
+    margin-left: 10px;
 }
 
 .checkout-button:hover {
@@ -875,6 +883,7 @@ a {
   order: 1;
   display: flex;
   background-color: #f3f3f3;
+  width: auto;
 }
 
 .cart-flexbox-with-border {
@@ -889,3 +898,8 @@ a {
 }
 
 
+/* Logging in */
+
+.alert-success {
+  background-color: #9d6f4d !important;
+}

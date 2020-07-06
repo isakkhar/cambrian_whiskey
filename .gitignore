@@ -9,3 +9,4 @@ media/
 cart/templates/cart_ecom.html
 cart/templates/glen.html
 checkout/templates/experiement_checkout.html
+cart/templates/test.-cart.html

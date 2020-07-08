@@ -7,99 +7,104 @@
 
 {% block content %}
 
-<div class="container checkout-cambrian-logo">
+  <div class="container checkout-cambrian-logo">
 
-  <img src="\media\images\profile.png" width='75' height="75" alt="Cambrian Whiskey">
-
-</div>
-
-  <div class="flexbox-container">
-
-    <div class="flexbox-item flexbox-item-2 removing-border-checkout-flexbox">
-
-      <form class="checkout-form-position" role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-
-        <legend>Payment Details</legend>
-
-        <div id="credit-card-errors" style="display: none">
-
-          <div class="alert-message block-message error" id="stripe-error-message"></div>
-
-        </div>
-
-        <div class="form-group">
-
-          {{ order_form|as_bootstrap }}
-
-        </div>
-
-        <div class="form-group">
-
-          {{ payment_form|as_bootstrap }}
-
-        </div>
-
-        {% csrf_token %}
-
-        <div class="form-group">
-
-          <input class="btn checkout-submit-payment" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-
-        </div>
-
-      </form>
-    
-    </div>
-
-    {% for item in cart_items %}
-
-    <div class="flexbox-item flexbox-item-1 checkout-summary-box">
-
-      <table class="table">
-
-        <thead>
-
-          <h4 class="cart-table-title">Order Summary</h4>
-
-          <tr>
-
-            <th scope="col" class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
-          </th>
-            
-          <td>
-            <p class="checkout-item-title">{{ item.product.title }}</p>
-          </td>
-            
-          </tr>
-
-          <tr>
-
-            <th class="checkout-totalprice" scope="col">Total Price</th>
-
-            <td class="item-quantity-totalprice-checkout
-            "> £{{ total }}</td>
-          
-          </tr>
-          
-          <tr>
-
-            <th class="checkout-totalprice" scope="col">Qty</th>
-
-            <td class="item-quantity-totalprice-checkout">{{ item.quantity }}</td>
-
-          </tr>
-          
-        </thead>
-      
-      </table>
-
-      <a class="btn btn-primary checkout-button" href="{% url 'view_cart' %}" role="button">VIEW AND EDIT BASKET</a>  
-      
-    </div>
+    <img src="\media\images\profile.png" width='75' height="75" alt="Cambrian Whiskey">
 
   </div>
 
-    {% endfor %}
+    <div class="flexbox-container">
+
+      <div class="flexbox-item flexbox-item-2 removing-border-checkout-flexbox">
+
+        <form class="checkout-form-position" role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+
+          <legend>Payment Details</legend>
+
+          <div id="credit-card-errors" style="display: none">
+
+            <div class="alert-message block-message error" id="stripe-error-message"></div>
+
+          </div>
+
+          <div class="form-group">
+
+            {{ order_form|as_bootstrap }}
+
+          </div>
+
+          <div class="form-group">
+
+            {{ payment_form|as_bootstrap }}
+
+          </div>
+
+          {% csrf_token %}
+
+          <div class="form-group">
+
+            <input class="btn checkout-submit-payment" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+
+          </div>
+
+        </form>
+      
+      </div>
+
+      
+
+        <div class="flexbox-item flexbox-item-1 checkout-summary-box" id="checkout-scroll-bar">
+          <!-- PROCESS OF GETTING ALL ITEMS UNDER 1 BOX -->
+
+          <table class="table">
+
+            <thead>
+
+              <h4 class="cart-table-title">Order Summary</h4>
+
+              <tr>
+
+                {% for item in cart_items %}
+
+                <th scope="col" class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+              </th>
+                
+              <td>
+                <p class="checkout-item-title">{{ item.product.title }}</p>
+              </td>
+                
+              </tr>
+
+              <tr>
+
+                <th class="checkout-totalprice" scope="col">Price</th>
+
+                <td class="item-quantity-totalprice-checkout
+                "> £{{ item.product.price }}</td>
+              
+              </tr>
+              
+              <tr>
+
+                <th class="checkout-totalprice" scope="col">Qty</th>
+
+                <td class="item-quantity-totalprice-checkout">{{ item.quantity }}</td>
+
+              </tr>
+
+              {% endfor %}  
+              
+            </thead>
+          
+          </table>
+
+          <a class="btn btn-primary checkout-button" href="{% url 'view_cart' %}" role="button">VIEW AND EDIT BASKET</a>  
+          
+        </div>
+
+      
+
+    </div>
 
 {% endblock %}
 

@@ -535,6 +535,16 @@ So a little trick there is to put in a min-height. */
 
 /* Registration html */
 
+.register-link {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.register-link-href {
+  margin-top: 15px;
+  color: #9d6f4d !important;
+}
+
 .registration-form-title {
   text-align: center;
   text-transform: uppercase;
@@ -591,6 +601,15 @@ label {
 }
 
 /* Cart Html */
+
+.cart-button {
+  color: #fff;
+  background-color: #9d6f4d;
+  border-color: #9d6f4d;
+  height: 35px;
+  border-radius: 2px;
+  width: auto;
+}
 
 .badge-warning {
   color: #fff;
@@ -750,13 +769,13 @@ label {
 #checkout-scroll-bar {
   overflow-y: scroll;
   overflow: auto;  
-  /* position: absolute; */
   top: 10px;
   left: 20px;
   bottom: 10px;
   right: 0;
   padding: 30px; 
   overflow-x: hidden;
+  max-height: 450px;
 }
 
 .minicart-items-wrapper {
@@ -846,9 +865,11 @@ legend {
     height: 35px;
     border-radius: 2px;
     width: auto;
-    margin: 25px;
+    margin: 5px;
     margin-left: 10px;
 }
+
+
 
 .checkout-button:hover {
   color: #fff;
@@ -912,6 +933,7 @@ a {
   margin: 10px;
   border: 1px solid black;
   background-color: white;
+  /* padding: 10px; */
 }
 
 .flexbox-item-1 {

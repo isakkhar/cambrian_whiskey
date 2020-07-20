@@ -535,6 +535,25 @@ So a little trick there is to put in a min-height. */
 
 /* Registration html */
 
+.input-registration-box {
+  width: 100%;
+}
+
+.flexbox-item-registration {
+  align-items: center;
+  justify-content: left;
+  width: 200px;
+  margin: 10px;
+  /* border: 1px solid black; */
+  background-color: white;
+  /* padding: 10px; */
+}
+
+.login-option-button {
+  margin-top: 40px;
+  text-align: center;
+}
+
 .register-link {
   margin-left: 15px;
   margin-top: 15px;

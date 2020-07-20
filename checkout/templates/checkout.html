@@ -51,58 +51,54 @@
       
       </div>
 
-      
+      <div class="flexbox-item flexbox-item-1 checkout-summary-box" id="checkout-scroll-bar">
+        <!-- PROCESS OF GETTING ALL ITEMS UNDER 1 BOX -->
 
-        <div class="flexbox-item flexbox-item-1 checkout-summary-box" id="checkout-scroll-bar">
-          <!-- PROCESS OF GETTING ALL ITEMS UNDER 1 BOX -->
+        <table class="table">
 
-          <table class="table">
+          <thead>
 
-            <thead>
+            <h4 class="cart-table-title">Order Summary</h4>
 
-              <h4 class="cart-table-title">Order Summary</h4>
+            <tr>
 
-              <tr>
+              {% for item in cart_items %}
 
-                {% for item in cart_items %}
-
-                <th scope="col" class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
-              </th>
-                
-              <td>
-                <p class="checkout-item-title">{{ item.product.title }}</p>
-              </td>
-                
-              </tr>
-
-              <tr>
-
-                <th class="checkout-totalprice" scope="col">Price</th>
-
-                <td class="item-quantity-totalprice-checkout
-                "> £{{ item.product.price }}</td>
+              <th scope="col" class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+            </th>
               
-              </tr>
+            <td>
+              <p class="checkout-item-title">{{ item.product.title }}</p>
+            </td>
               
-              <tr>
+            </tr>
 
-                <th class="checkout-totalprice" scope="col">Qty</th>
+            <tr>
 
-                <td class="item-quantity-totalprice-checkout">{{ item.quantity }}</td>
+              <th class="checkout-totalprice" scope="col">Price</th>
 
-              </tr>
+              <td class="item-quantity-totalprice-checkout
+              "> £{{ item.product.price }}</td>
+            
+            </tr>
+            
+            <tr>
 
-              {% endfor %}  
-              
-            </thead>
-          
-          </table>
+              <th class="checkout-totalprice" scope="col">Qty</th>
 
-          <a class="btn btn-primary checkout-button" href="{% url 'view_cart' %}" role="button">VIEW AND EDIT BASKET</a>  
-          
-        </div>
+              <td class="item-quantity-totalprice-checkout">{{ item.quantity }}</td>
 
-      
+            </tr>
+
+            {% endfor %}  
+            
+          </thead>
+        
+        </table>
+
+        <a class="btn btn-primary checkout-button" href="{% url 'view_cart' %}" role="button">VIEW AND EDIT BASKET</a>  
+        
+      </div>
 
     </div>
 

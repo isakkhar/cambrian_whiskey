@@ -10,6 +10,8 @@ class MakePaymentForm(forms.Form):
 
   credit_card_number = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Credit Card Number'}), required=False)
   cvv = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Cvv'}), required=False)
+  # expiry_month = forms.ChoiceField(label='', choices=MONTH_CHOICES, required=False)
+  # expiry_year = forms.ChoiceField(label='', choices=YEAR_CHOICES, required=False)
   expiry_month = forms.ChoiceField(label='', choices=MONTH_CHOICES, widget=forms.TextInput(attrs={'placeholder': 'Month'}), required=False)
   expiry_year = forms.ChoiceField(label='', choices=YEAR_CHOICES, widget=forms.TextInput(attrs={'placeholder': 'Year'}), required=False)
   # stripe requires an id and even though we have included it into the form, the user will not see this

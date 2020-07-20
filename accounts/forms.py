@@ -20,12 +20,25 @@ class UserLoginForm(forms.Form):
 class UserRegistrationForm(UserCreationForm):
   """Form used to register a new user"""
 
+  # username = forms.CharField( 
+  #     label='Username', 
+  #     widget= forms.CharField(attrs=
+  #     {'class':'input-registration-box'}))
+
+  username = forms.CharField()
+  username.widget.attrs.update({'class': 'input-registration-box'})
+
+  email = forms.CharField( 
+      label='Email Address', 
+      widget= forms.EmailInput(attrs=
+      {'class':'input-registration-box'}))
+  
   password1 = forms.CharField(
       label = 'Password', 
-      widget=forms.PasswordInput)
+      widget=forms.PasswordInput(attrs={'class':'input-registration-box'}))
   password2 = forms.CharField(
       label="Password Confirmation", 
-      widget=forms.PasswordInput)
+      widget=forms.PasswordInput(attrs={'class':'input-registration-box'}))
 
   # inner class Meta
   class Meta:

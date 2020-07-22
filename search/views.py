@@ -1,18 +1,19 @@
 from django.shortcuts import render
 from products.models import Product
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 def whiskey_search(request):
-  products = Product.objects.filter(title__icontains=request.GET['q'])
-  for Product in products:
-    print(Product)
-  # print(request.META.get('PATH_INFO', None))
-  # print(request.GET['q'])
-  # print("hello")
+  products = Product.objects.filter(title__icontains=request.GET['q']).order_by('title')
 
-  return render(request, 'products.html', {'products':products})
+  paginator = Paginator(products, 6)
+  page_number = request.GET.get('page', 1)
+  page = paginator.page(page_number)
+
+  # print(request.META.get('PATH_INFO', None))
+  return render(request, 'products.html', {'page':page})
 
 
 

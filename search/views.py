@@ -12,8 +12,24 @@ def whiskey_search(request):
   page_number = request.GET.get('page', 1)
   page = paginator.page(page_number)
 
+  if page.has_next():
+
+    next_url = f'?page={page.next_page_number()}'
+
+  else:
+
+    next_url = ''
+
+  if page.has_previous():
+
+    prev_url = f'?page={page.previous_page_number()}'
+
+  else:
+
+    prev_url = ''
+
   # print(request.META.get('PATH_INFO', None))
-  return render(request, 'products.html', {'page':page})
+  return render(request, 'products.html', {'page':page, 'next_page_url': next_url, 'prev_page_url': prev_url})
 
 
 

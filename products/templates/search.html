@@ -5,10 +5,10 @@
 
     <div class="container" style="margin-bottom: 40px;">
 
-      <div class="row row-flex">        
+      <div class="row row-flex">
 
-    {% for product in page.object_list %}
-    
+    {% for product in products %}
+
           <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 product-card-box">
       
               <div class="card-deck height-deck-box">
@@ -71,47 +71,65 @@
     
       </div>
 
-      <nav aria-label="...">
+      <!-- Pagination -->
 
-        <ul class="pagination justify-content-center ">
+      {% if products.has_other_pages %}
 
-          <li class="page-item {% if not prev_page_url %} disabled {% endif %}">
+        <ul class="pagination justify-content-center">
 
-            <a class="page-link" href="{{ prev_page_url }}" tabindex="-1" aria-disabled="true">Previous</a>
-
-          </li>
-
-          {% for n in page.paginator.page_range %}
-
-            {% if page.number == n %}
-
-              <li class="page-item active" aria-current="page">
-
-                <a class="page-link" href="?page={{ n }}">{{ n }} <span class="sr-only">(current)</span></a>
-
-              </li>
-
-              {% elif n > page.number|add:-3 and n < page.number|add:3 %}
+            {% if products.has_previous %}
 
                 <li class="page-item">
 
-                  <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+                  <a href="?page=
+                        {{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i
+                        ><span aria-hidden="true" style="color: #9d6f4d; font-size: 2rem;">&laquo;</span></i>
+                  </a>
+
+                </li>
+
+            {% else %}
+            
+                <li class="disabled page-item"><a href="#!">
+
+                  <i><span style="color: #9d6f4d; font-size: 2rem;" aria-hidden="true">&laquo;</span></i></a>
 
                 </li>
 
             {% endif %}
 
-          {% endfor %}
+            {% for num in products.paginator.page_range %}
 
-          <li class="page-item {% if not next_page_url %} disabled {% endif %}">
+                {% if products.number == num %}
+                
+                    <li class="active page-item"><a href="#!" style="color: #9d6f4d; font-size: 2rem;">{{ num }}</a></li>
 
-            <a class="page-link" href="{{ next_page_url }}">Next</a>
+                {% else %}
 
-          </li>
+                    <li class="page-item"><a style="color: #9d6f4d; font-size: 2rem;"
+                            href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a>
+                    </li>
+
+                {% endif %}
+
+            {% endfor %}
+
+            {% if products.has_next %}
+
+                <li class="page-item"><a style="color: #9d6f4d; font-size: 2rem;"
+                        href="?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i><span aria-hidden="true" style="color: #9d6f4d; font-size: 2rem;">&raquo;</span></i></a>
+                </li>
+
+            {% else %}
+
+                <li class="page-item disabled"><a href="#!"><i><span aria-hidden="true" style="color: #9d6f4d; font-size: 2rem;">&raquo;</span></i></a>
+                </li>
+
+            {% endif %}
 
         </ul>
-        
-      </nav>
+
+      {% endif %}
 
     </div>
 

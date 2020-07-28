@@ -34,7 +34,8 @@
             <div class="align-center mx-auto collapse navbar-collapse" id="searchbar">
 
                 <form class="form-inline my-2 my-lg-0 ml-auto" action="{% url 'search' %}" method="GET">
-                    <input type="text" placeholder="Search" aria-label="Search" name="q" required>
+                    <input type="text" placeholder="Search" aria-label="Search" name="q" required
+                    value={{ request.GET.q }}>
                     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
 

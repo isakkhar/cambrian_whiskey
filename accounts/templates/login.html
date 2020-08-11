@@ -8,37 +8,37 @@
 
 {% block content %}
 
-    <div class="flexbox-container image-login">
+    <div class="row flexbox-container image-login">
         
-        <div>
+        <div class="col-md-12 col-lg-6">
 
-            <img class="login-image" src="\media\images\cam-whisk-login-photo.jpg" alt="">
+            <img class="responsive login-image" src="\media\images\cam-whisk-login-photo.jpg" alt="">
         
         </div>
         
-        <div class="login-input-position">
+        <div class="col-md-12 col-lg-5 login-input-position">
 
-        <h3 class="login-title">Already Registered</h3>
+            <h3 class="login-title">Already Registered</h3>
 
-            <form action="" method="POST">
+                <form action="" method="POST">
 
-                <!-- we use the % sign instead of curly braces as this is a reference to a function  -->
+                    <!-- we use the % sign instead of curly braces as this is a reference to a function  -->
 
-                {% csrf_token %}
+                    {% csrf_token %}
 
-                {{ login_form | as_bootstrap }}
+                    {{ login_form | as_bootstrap }}
 
-                <button action='submit' class="btn btn-success">Login</button>
+                    <button action='submit' class="btn btn-success">Login</button>
+                    
+                    <a class="password-link" href='{% url "password_reset" %}'>I've lost my password</a>
+                    
+                    <div class="row">
+
+                        <p class="register-link">Not Registered? Register <a class="register-link-href" href='{% url "registration" %}'>Here</a> </p>
+
+                    </div>
                 
-                <a class="password-link" href='{% url "password_reset" %}'>I've lost my password</a>
-                
-                <div class="row">
-
-                    <p class="register-link">Not Registered? Register <a class="register-link-href" href='{% url "registration" %}'>Here</a> </p>
-
-                </div>
-            
-            </form>
+                </form>
 
         </div>
 

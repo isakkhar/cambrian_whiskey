@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from products.models import Product
 from .forms import ContactForm
+from django.core.mail import send_mail
+from django.contrib import messages
 
 
 # Create your views here.
@@ -36,7 +38,7 @@ def contact(request):
               message,
               from_email,
               to_list,
-              fail_silently=False)
+              fail_silently=True)
           messages.success(
               request,
               """We\'ve received your message,

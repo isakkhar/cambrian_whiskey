@@ -81,9 +81,9 @@
 
                 <li class="page-item">
 
-                  <a href="?page=
+                  <a class="page-link" href="?page=
                         {{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i
-                        ><span aria-hidden="true" style="color: #9d6f4d; font-size: 2rem;">&laquo;</span></i>
+                        ><span aria-hidden="true" style="color: #9d6f4d;">&laquo;</span></i>
                   </a>
 
                 </li>
@@ -102,11 +102,11 @@
 
                 {% if products.number == num %}
                 
-                    <li class="active page-item"><a href="#!" style="color: #9d6f4d; font-size: 2rem;">{{ num }}</a></li>
+                    <li class="page-item active"><a class="page-link" href="#!" style="color: #9d6f4d">{{ num }}</a></li>
 
                 {% else %}
 
-                    <li class="page-item"><a style="color: #9d6f4d; font-size: 2rem;"
+                    <li class="page-item"><a class="page-link" style="color: #9d6f4d"
                             href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a>
                     </li>
 
@@ -116,13 +116,17 @@
 
             {% if products.has_next %}
 
-                <li class="page-item"><a style="color: #9d6f4d; font-size: 2rem;"
-                        href="?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i><span aria-hidden="true" style="color: #9d6f4d; font-size: 2rem;">&raquo;</span></i></a>
+                <li class="page-item">
+                  
+                  <a class="page-link" href="?page=
+                        {{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i><span aria-hidden="true" style="color: #9d6f4d;">&raquo;</span></i>
+                  </a>
+
                 </li>
 
             {% else %}
 
-                <li class="page-item disabled"><a href="#!"><i><span aria-hidden="true" style="color: #9d6f4d; font-size: 2rem;">&raquo;</span></i></a>
+                <li class="page-item disabled"><a class="page-link" href="#!"><i><span aria-hidden="true" style="color: #9d6f4d;">&raquo;</span></i></a>
                 </li>
 
             {% endif %}

@@ -7,11 +7,11 @@
 
 {% block content %}
 
-  <div class="container checkout-cambrian-logo">
+  <!-- <div class="container checkout-cambrian-logo">
 
     <img src="\media\images\profile.png" width='75' height="75" alt="Cambrian Whiskey">
 
-  </div>
+  </div> -->
 
     <div class="flexbox-container">
 
@@ -19,7 +19,7 @@
 
         <form class="checkout-form-position" role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
 
-          <legend>Payment Details</legend>
+          <legend class="payment-details-position">Payment Details</legend>
 
           <div id="credit-card-errors" style="display: none">
 

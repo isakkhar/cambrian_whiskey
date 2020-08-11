@@ -9,13 +9,13 @@
 
     {% for product in page.object_list %}
     
-          <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 product-card-box">
+          <div class="col-xs-10 col-xs-offset-1 col-md-6 col-lg-4 product-card-box">
       
               <div class="card-deck height-deck-box">
 
                 <div class="card">
 
-                  <div class="product img-responsive card-img-top" style="margin:0; height: 280px; width: auto; background-image: url('{{ MEDIA_URL }}{{ product.image }}'); background-size:cover"></div>
+                  <div class="product img-responsive" style="margin:0; height: 280px; width: auto; background-image: url('{{ MEDIA_URL }}{{ product.image }}'); background-size:cover"></div>
 
                   <div class="card-body">
                     

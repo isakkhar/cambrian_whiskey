@@ -13,8 +13,8 @@ class UserLoginForm(forms.Form):
   """Form to be used to log users in"""
   """inside or constructor, widget will tell django that we want to render a normal text input box but we want it to be of type password"""
   # constructor
-  username = forms.CharField()
-  password = forms.CharField(widget=forms.PasswordInput)
+  username = forms.CharField(widget=forms.TextInput(attrs={'class' : 'login-form-control'}))
+  password = forms.CharField(widget=forms.PasswordInput(attrs={'class' : 'login-form-control'}))
 
 # this form will inherit from usercreationform this will give us the username and email fields
 class UserRegistrationForm(UserCreationForm):

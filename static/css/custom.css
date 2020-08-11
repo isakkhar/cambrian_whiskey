@@ -91,6 +91,18 @@ body {
 
 /* Login html */
 
+.responsive {
+  width: 100% !important;
+  height: auto;
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .login-title {
   font-family: GFModern,sans-serif;
   font-weight: 700;
@@ -102,7 +114,6 @@ body {
 
 .login-input-position {
   margin-top: 55px;
-  margin-left: 20px;
 }
 
 .image-login {
@@ -281,6 +292,32 @@ body {
   {
     margin-bottom:30px
   }
+  .login-image {
+    width: auto;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: block;
+  }
+
+  .payment-details-position {
+    font-size: 2rem;
+    text-align: left;
+    border-bottom: 0px solid #ccc;
+    width: 362px !important;
+    padding-left: 12px !important;
+  }
+
+  /* .product {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  } */
+
+  .cart-flexbox-with-border {
+    padding-right: 0px !important;
+  }
 }
 
 @media (max-width:767px)
@@ -295,6 +332,36 @@ body {
   }
 }
 
+/* login-form-control set in the 'forms.py' file under class UserLoginForm */
+
+@media (min-width: 250px)
+{
+  .payment-details-position {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 300px) 
+{
+  .login-form-control  
+  
+  {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 575.98px) 
+{
+  .login-form-control 
+  {
+    width: 300px;
+  }
+
+  .flexbox-item-1 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
 
 .social-icons
 {
@@ -495,6 +562,23 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.cart-description-list {
+  background-size: contain;
+  /* center center to make sure its centered within the div */
+  background-position: center center;
+  /* we dont want it tiling */
+  background-repeat: no-repeat;
+  /* set a width, regardless of size of upload its width is the same and height */
+  width: 150px;
+  height: 150px;
+  /* auto is just to center the div within the other divs */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+}
 
 
 
@@ -621,6 +705,16 @@ label {
 
 /* Cart Html */
 
+.cart-amend-button {
+  text-align: center;
+}
+
+.form-cart-position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cart-button {
   color: #fff;
   background-color: #9d6f4d;
@@ -641,12 +735,9 @@ label {
 }
 
 .cart-price-font {
-  font-family: 'Times New Roman', Times, serif;
-}
-
-
-.cart-price-font {
   font-family: 'Times New Roman', serif !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -692,13 +783,14 @@ label {
 }
 
 .cart-title {
-  text-align: left;
+  text-align: center;
   text-transform: capitalize;
   color: #ad6f48;
   margin-top: 40px;
   margin-bottom: 40px;
   position: relative;
   font-weight: 100;
+  font-size: 20px;
 }
 
 .cart-title-text-thickness {
@@ -813,7 +905,7 @@ label {
 legend {
   font-size: 2rem;
   text-align: left;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
 }
 
 .checkout-cambrian-logo {
@@ -873,7 +965,7 @@ legend {
 
 .checkout-summary-box {
   width: 275px !important;
-  margin-top: 60px !important;
+  margin-top: 67px !important;
 
 }
 
@@ -941,7 +1033,7 @@ a {
   align-items: flex-start;
   flex-wrap: wrap;
   margin: auto;
-  /* align-content: center; */
+  margin-top: 5%;
 
 }
 
@@ -975,7 +1067,7 @@ a {
 
 .removing-border-checkout-flexbox {
   text-align: left;
-  padding-right: 145px;
+  /* padding-right: 145px; */
   max-width: 500px;
   border: 0;
 }

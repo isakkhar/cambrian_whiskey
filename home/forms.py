@@ -2,12 +2,16 @@ from django import forms
 
 
 class ContactForm(forms.Form):
-    name = forms.CharField(required=True)
-    email_address = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
+    name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class':'contact-form-input'}))
+
+    email_address = forms.EmailField(required=True, widget=forms.EmailInput(attrs=
+      {'class':'contact-form-input'}))
+
+    subject = forms.CharField(required=True, widget=forms.TextInput(attrs={'class':'contact-form-input'}))
+
     message = forms.CharField(
         required=True,
-        widget=forms.Textarea()
+        widget=forms.Textarea(attrs={'class':'contact-form-input'})
     )
 
     class Meta:

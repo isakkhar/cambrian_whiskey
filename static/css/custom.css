@@ -320,6 +320,14 @@ body {
   }
 }
 
+@media (min-width:767px)
+{
+  .contact-form-input 
+  {
+    width: 55% !important;
+  }
+}
+
 @media (max-width:767px)
 {
   .site-footer
@@ -676,6 +684,10 @@ So a little trick there is to put in a min-height. */
 }
 
 /* Contact html */
+
+.contact-form-input {
+  width: 100%;
+}
 
 .wrapper-button {
   text-align: center;
